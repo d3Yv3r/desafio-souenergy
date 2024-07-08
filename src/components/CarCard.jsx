@@ -6,12 +6,13 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 export const CarCard = ({
-  image,
+  images,
   price,
   brand,
   model,
   year,
   views,
+  id,
   handleClickOpen,
 }) => {
   return (
@@ -19,7 +20,7 @@ export const CarCard = ({
       <CardMedia
         component="img"
         alt={`${brand} ${model}`}
-        image={image}
+        image={images[0]}
         className="h-[140px] object-cover object-center"
       />
       <CardContent>
@@ -37,7 +38,7 @@ export const CarCard = ({
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={() => handleClickOpen()}>
+        <Button size="small" onClick={() => handleClickOpen(id)}>
           Saiba mais
         </Button>
       </CardActions>
