@@ -1,4 +1,3 @@
-import Box from "@mui/material/Box";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
@@ -11,7 +10,7 @@ export const MenuFloat = () => {
   const navigate = useNavigate();
 
   return (
-    <Box sx={{ width: "100%" }} className="fixed bottom-0">
+    <div className="w-full fixed bottom-0">
       <BottomNavigation
         showLabels
         value={value}
@@ -30,6 +29,6 @@ export const MenuFloat = () => {
           onClick={() => navigate("/admin")}
         />
       </BottomNavigation>
-    </Box>
+    </div>
   );
 };
