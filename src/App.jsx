@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
 import { MenuFloat } from "@/components/Menu/MenuFloat";
-import logo from "@/assets/images/logo.svg";
+import logo from "@/assets/logo.svg";
 
 function App() {
   return (
-    <main className="max-h-screen">
+    <main className="min-h-screen h-full pb-14">
       <header className="flex items-center justify-center p-2">
         <img src={logo} alt="Logo" className="h-[50px]" />
       </header>
