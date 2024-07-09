@@ -1,8 +1,7 @@
-import { CarCard } from "@/components/CarCard";
 import { useEffect, useState } from "react";
-import { Drawer } from "@/components/Drawer";
 import { Columns2, Rows3 } from "lucide-react";
 import { twMerge } from "tailwind-merge";
+import { CarCard, Drawer } from "./components";
 
 export const Home = () => {
   const [open, setOpen] = useState(false);
@@ -11,7 +10,7 @@ export const Home = () => {
   const [isGrid, setIsGrid] = useState(false);
 
   const handleRequest = () =>
-    fetch("http://192.168.18.32:3000/cars")
+    fetch("http://192.168.0.8:3000/cars")
       .then((response) => response.json())
       .then((json) => setData(json));
 
@@ -22,7 +21,7 @@ export const Home = () => {
   const handleClickOpen = async (id) => {
     let carId = data.find((item) => item.id === id);
     carId = { ...carId, views: carId.views + 1 };
-    await fetch(`http://192.168.18.32:3000/cars/${id}`, {
+    await fetch(`http://192.168.0.8:3000/cars/${id}`, {
       method: "put",
       body: JSON.stringify(carId),
     });
