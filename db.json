@@ -1,0 +1,80 @@
+{
+  "cars": [
+    {
+      "id": "1",
+      "images": [
+        "images/carsOne.jpg",
+        "images/carsTwo.jpg",
+        "images/carsThree.jpg",
+        "images/carsFour.jpg"
+      ],
+      "price": "R$ 50.000,00",
+      "brand": "Toyota",
+      "model": "Corolla",
+      "year": 2020,
+      "views": 6,
+      "color": "Preto",
+      "licensePlate": "ABC-1234",
+      "city": "São Paulo",
+      "mileage": "20.000 km",
+      "registrationDate": "2023-07-01"
+    },
+    {
+      "id": "2",
+      "images": [
+        "images/carsOne.jpg",
+        "images/carsTwo.jpg",
+        "images/carsThree.jpg",
+        "images/carsFour.jpg"
+      ],
+      "price": "R$ 60.000,00",
+      "brand": "Honda",
+      "model": "Civic",
+      "year": 2019,
+      "views": 0,
+      "color": "Branco",
+      "licensePlate": "XYZ-5678",
+      "city": "Rio de Janeiro",
+      "mileage": "25.000 km",
+      "registrationDate": "2023-06-15"
+    },
+    {
+      "id": "3",
+      "images": [
+        "images/carsOne.jpg",
+        "images/carsTwo.jpg",
+        "images/carsThree.jpg",
+        "images/carsFour.jpg"
+      ],
+      "price": "R$ 70.000,00",
+      "brand": "Ford",
+      "model": "Focus",
+      "year": 2021,
+      "views": 0,
+      "color": "Azul",
+      "licensePlate": "DEF-9876",
+      "city": "Curitiba",
+      "mileage": "10.000 km",
+      "registrationDate": "2023-07-01"
+    },
+    {
+      "id": "4",
+      "images": [
+        "images/carsOne.jpg",
+        "images/carsTwo.jpg",
+        "images/carsThree.jpg",
+        "images/carsFour.jpg"
+      ],
+      "price": "R$ 80.000,00",
+      "brand": "Chevrolet",
+      "model": "Cruze",
+      "year": 2018,
+      "views": 0,
+      "color": "Vermelho",
+      "licensePlate": "GHI-6543",
+      "city": "Belo Horizonte",
+      "mileage": "30.000 km",
+      "registrationDate": "2023-05-20"
+    }
+  ]
+}
