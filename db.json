@@ -75,25 +75,6 @@
       "city": "Belo Horizonte",
       "mileage": "30.000 km",
       "registrationDate": "2023-05-20"
-    },
-    {
-      "id": "6ac2",
-      "brand": "Chevrolet",
-      "model": "Celta",
-      "year": "2003",
-      "price": "R$ 10.000,00",
-      "color": "Branco",
-      "licensePlate": "HYQ-5363",
-      "city": "Fortaleza",
-      "mileage": "100.000 km",
-      "registrationDate": "2024-07-08",
-      "images": [
-        "images/carsOne.jpg",
-        "images/carsTwo.jpg",
-        "images/carsThree.jpg",
-        "images/carsFour.jpg"
-      ],
-      "views": 0
     }
   ]
 }
