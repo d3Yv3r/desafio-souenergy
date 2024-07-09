@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { TextField, Button, Grid } from "@mui/material";
 import { AlertWrap } from "@/components/AlertWrap";
-import { getLabelText } from "../constantes";
+import { getLabelText } from "../constants";
 
 const carImg = [
   "images/carsOne.jpg",
@@ -10,19 +10,7 @@ const carImg = [
   "images/carsFour.jpg",
 ];
 
-export const CarForm = ({ setOpen }) => {
-  const [formData, setFormData] = useState({
-    brand: "",
-    model: "",
-    year: "",
-    price: "",
-    color: "",
-    licensePlate: "",
-    city: "",
-    mileage: "",
-    registrationDate: "",
-  });
-
+export const CarForm = ({ setOpen, handleRequest, formData, setFormData }) => {
   const [images, setImages] = useState([]);
 
   const handleChange = (e) => {
@@ -35,13 +23,32 @@ export const CarForm = ({ setOpen }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://192.168.0.8:3000/cars", {
+    if (formData?.id?.length > 0) {
+      fetch(`http://localhost:3000/cars/${formData.id}`, {
+        method: "put",
+        body: JSON.stringify({ ...formData, images: carImg, views: 0 }),
+      })
+        .then(() => {
+          <AlertWrap type="success" text="Veículo editado com sucesso!" />;
+          setOpen(false);
+          handleRequest();
+        })
+        .catch((error) => {
+          <AlertWrap type="error" text="Erro ao tentar editar veículo!" />;
+
+          console.error(error);
+        });
+      return;
+    }
+
+    fetch("http://localhost:3000/cars", {
       method: "post",
-      body: JSON.stringify({ ...formData, images: carImg }),
+      body: JSON.stringify({ ...formData, images: carImg, views: 0 }),
     })
       .then(() => {
         <AlertWrap type="success" text="Veículo cadastrado com sucesso!" />;
         setOpen(false);
+        handleRequest();
       })
       .catch((error) => {
         <AlertWrap
@@ -57,20 +64,23 @@ export const CarForm = ({ setOpen }) => {
     <div className="w-full">
       <form onSubmit={handleSubmit}>
         <Grid container spacing={2}>
-          {Object.keys(formData).map((key, index) => (
-            <Grid item xs={12} sm={6} key={index}>
-              <TextField
-                className="w-full"
-                fullWidth
-                label={getLabelText(key)}
-                name={key}
-                value={formData[key]}
-                onChange={handleChange}
-                variant="outlined"
-                required
-              />
-            </Grid>
-          ))}
+          {Object.keys(formData).map((key, index) => {
+            if (key === "id") return null;
+            return (
+              <Grid item xs={12} sm={6} key={index}>
+                <TextField
+                  className="w-full"
+                  fullWidth
+                  label={getLabelText(key)}
+                  name={key}
+                  value={formData[key]}
+                  onChange={handleChange}
+                  variant="outlined"
+                  required
+                />
+              </Grid>
+            );
+          })}
           <div className="w-full mt-4">
             <TextField
               type="file"

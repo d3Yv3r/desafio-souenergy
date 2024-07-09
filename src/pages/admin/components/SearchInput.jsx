@@ -1,27 +1,24 @@
 import TextField from "@mui/material/TextField";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
-import { useState } from "react";
 
 const filter = createFilterOptions();
 
-export const SearchInput = ({ tableData }) => {
-  const [value, setValue] = useState(null);
-
+export const SearchInput = ({ options, searchValue, setSearchValue }) => {
   return (
     <Autocomplete
-      value={value}
+      value={searchValue}
       onChange={(event, newValue) => {
         if (typeof newValue === "string") {
-          setValue({
+          setSearchValue({
             title: newValue,
           });
         } else if (newValue && newValue.inputValue) {
           // Create a new value from the user input
-          setValue({
+          setSearchValue({
             title: newValue.inputValue,
           });
         } else {
-          setValue(newValue);
+          setSearchValue(newValue);
         }
       }}
       filterOptions={(options, params) => {
@@ -45,7 +42,7 @@ export const SearchInput = ({ tableData }) => {
       clearOnBlur
       handleHomeEndKeys
       id="Pesquise por uma marca"
-      options={tableData}
+      options={options}
       getOptionLabel={(option) => {
         if (typeof option === "string") {
           return option;

@@ -10,7 +10,7 @@ export const Home = () => {
   const [isGrid, setIsGrid] = useState(false);
 
   const handleRequest = () =>
-    fetch("http://192.168.0.8:3000/cars")
+    fetch("http://localhost:3000/cars")
       .then((response) => response.json())
       .then((json) => setData(json));
 
@@ -21,7 +21,7 @@ export const Home = () => {
   const handleClickOpen = async (id) => {
     let carId = data.find((item) => item.id === id);
     carId = { ...carId, views: carId.views + 1 };
-    await fetch(`http://192.168.0.8:3000/cars/${id}`, {
+    await fetch(`http://localhost:3000/cars/${id}`, {
       method: "put",
       body: JSON.stringify(carId),
     });

@@ -7,7 +7,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { CircleMinus, Pencil } from "lucide-react";
 
-export const CarTable = ({ tableData }) => {
+export const CarTable = ({ tableData, handleRemoveCar, handleEditCar }) => {
   return (
     <TableContainer component={Paper} className="overflow-auto">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -42,10 +42,10 @@ export const CarTable = ({ tableData }) => {
               <TableCell align="right">{row.registrationDate}</TableCell>
               <TableCell align="right">
                 <div className="flex items-center gap-2">
-                  <button onClick={() => {}}>
+                  <button onClick={() => handleEditCar(row.id)}>
                     <Pencil size={16} />
                   </button>
-                  <button onClick={() => {}}>
+                  <button onClick={() => handleRemoveCar(row.id)}>
                     <CircleMinus size={16} />
                   </button>
                 </div>

@@ -4,6 +4,8 @@ export const getLabelText = (key) => {
       return "Marca";
     case "model":
       return "Modelo";
+    case "price":
+      return "Valor";
     case "year":
       return "Ano";
     case "color":

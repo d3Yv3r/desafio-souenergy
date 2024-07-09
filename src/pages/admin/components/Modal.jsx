@@ -5,7 +5,13 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import { CarForm } from "./CarForm";
 
-export const Modal = ({ open, setOpen }) => {
+export const Modal = ({
+  open,
+  setOpen,
+  handleRequest,
+  formData,
+  setFormData,
+}) => {
   const handleClose = () => {
     setOpen(false);
   };
@@ -32,7 +38,12 @@ export const Modal = ({ open, setOpen }) => {
         <CloseIcon />
       </IconButton>
       <DialogContent dividers>
-        <CarForm setOpen={setOpen} />
+        <CarForm
+          setOpen={setOpen}
+          handleRequest={handleRequest}
+          formData={formData}
+          setFormData={setFormData}
+        />
       </DialogContent>
     </Dialog>
   );
