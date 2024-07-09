@@ -1,6 +1,6 @@
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import { Carousel } from "./Carousel";
 import { Eye } from "lucide-react";
+import { Carousel } from "./Carousel";
 
 export const Drawer = ({ open, setOpen, carData }) => {
   return (
