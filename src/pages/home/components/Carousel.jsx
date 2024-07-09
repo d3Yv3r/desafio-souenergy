@@ -1,12 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import carsOne from "@/assets/images/carsOne.jpg";
-import carsTwo from "@/assets/images/carsTwo.jpg";
-import carsThree from "@/assets/images/carsThree.jpg";
-import carsFour from "@/assets/images/carsFour.jpg";
 
-const images = [carsOne, carsTwo, carsThree, carsFour];
-export const Carousel = () => {
+export const Carousel = ({ images = [] }) => {
   const carousel = useRef();
   const [width, setWidth] = useState(0);
 
@@ -21,16 +16,13 @@ export const Carousel = () => {
       whileTap={{ cursor: "grabbing" }}
     >
       <motion.div
-        className="flex"
-        drag="x"
+        className="flex overflow-auto"
         dragConstraints={{ right: 0, left: -width }}
-        initial={{ x: 100 }}
-        animate={{ x: 0 }}
         transition={{ duration: 0.8 }}
       >
         {images.map((item, index) => (
           <motion.div
-            className="min-h-[200px] min-w-[333px] px-[12px]"
+            className="min-h-[50px] min-w-[200px] px-[12px]"
             key={index}
           >
             <img
